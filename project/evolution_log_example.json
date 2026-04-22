@@ -1,0 +1,53 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-04-22",
+  "issue_log": [
+    {
+      "issue_id": "ISSUE-001",
+      "timestamp": "2026-04-22T10:30:00",
+      "description": "角色越轴问题",
+      "problem_type": "角色越轴",
+      "responsible_agent": "分镜师",
+      "affected_stage": "分镜设计",
+      "checkpoint_added": "180度准则检查",
+      "status": "active",
+      "occurrence_count": 1
+    },
+    {
+      "issue_id": "ISSUE-002",
+      "timestamp": "2026-04-22T14:20:00",
+      "description": "人物造型与前一集不一致",
+      "problem_type": "人物造型不一致",
+      "responsible_agent": "服化道设计师",
+      "affected_stage": "服化道设计",
+      "checkpoint_added": "素材库对比验证",
+      "status": "active",
+      "occurrence_count": 1
+    }
+  ],
+  "active_checkpoints": [
+    {
+      "checkpoint": "180度准则检查",
+      "stage": "分镜设计",
+      "trigger_issue": "角色越轴",
+      "check_items": [
+        "检查所有对话镜头的轴线方向",
+        "验证正反打镜头的连贯性"
+      ]
+    },
+    {
+      "checkpoint": "素材库对比验证",
+      "stage": "服化道设计",
+      "trigger_issue": "人物造型不一致",
+      "check_items": [
+        "对比前一集人物设定",
+        "确保服装、发型、妆容一致性"
+      ]
+    }
+  ],
+  "evolution_summary": {
+    "total_issues_identified": 2,
+    "issues_resolved": 0,
+    "active_checkpoints_count": 2
+  }
+}

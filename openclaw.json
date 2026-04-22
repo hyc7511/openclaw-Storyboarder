@@ -1,0 +1,179 @@
+{
+  "name": "视频制片工作区",
+  "description": "基于 OpenClaw 的多智能体视频提示词生成系统",
+  "version": "2.1.0",
+  "author": "OpenClaw Team",
+
+  "agents": [
+    {
+      "name": "总导演",
+      "description": "负责剧本分析、创作指导和项目整体把控",
+      "config": "agents/director.md",
+      "skills": [
+        "director-skill",
+        "script-analysis-review-skill"
+      ]
+    },
+    {
+      "name": "美术指导",
+      "description": "负责人物造型和场景环境的视觉资产设计",
+      "config": "agents/art-designer.md",
+      "skills": [
+        "art-design-skill",
+        "art-direction-review-skill"
+      ]
+    },
+    {
+      "name": "分镜师",
+      "description": "负责 Seedance 2.0 动态视频提示词的创作",
+      "config": "agents/storyboard-artist.md",
+      "skills": [
+        "seedance-storyboard-skill",
+        "seedance-prompt-review-skill"
+      ]
+    }
+  ],
+
+  "skills": {
+    "director-skill": {
+      "path": "skills/director-skill",
+      "description": "剧本分析与讲戏技能"
+    },
+    "script-analysis-review-skill": {
+      "path": "skills/script-analysis-review-skill",
+      "description": "导演自审与连贯性检查"
+    },
+    "art-design-skill": {
+      "path": "skills/art-design-skill",
+      "description": "美术资产设计技能"
+    },
+    "art-direction-review-skill": {
+      "path": "skills/art-direction-review-skill",
+      "description": "美术审核技能"
+    },
+    "seedance-storyboard-skill": {
+      "path": "skills/seedance-storyboard-skill",
+      "description": "Seedance 分镜技能"
+    },
+    "seedance-prompt-review-skill": {
+      "path": "skills/seedance-prompt-review-skill",
+      "description": "分镜审核技能"
+    },
+    "compliance-review-skill": {
+      "path": "skills/compliance-review-skill",
+      "description": "合规审核技能"
+    },
+    "quality-review": {
+      "path": "skills/quality-review",
+      "description": "质量审核技能"
+    },
+    "seedance-prompt": {
+      "path": "skills/seedance-prompt",
+      "description": "Seedance 提示词技能"
+    },
+    "video-production": {
+      "path": "skills/video-production",
+      "description": "视频制作技能"
+    }
+  },
+
+  "workflow": {
+    "stages": [
+      "init",
+      "director_analysis",
+      "director_review",
+      "art_design",
+      "art_review",
+      "storyboard",
+      "storyboard_review",
+      "compliance_check",
+      "complete"
+    ],
+    "description": "标准三阶段制作流程：导演分析 → 美术设计 → 分镜创作"
+  },
+
+  "data": {
+    "database": "project/evolution_log.db",
+    "assets": {
+      "characters": "project/assets/character-prompts.md",
+      "scenes": "project/assets/scene-prompts.md"
+    },
+    "scripts": "project/script/"
+  },
+
+  "tools": {
+    "evolution_db": "project/evolution_db.py",
+    "init_db": "project/init_db.py",
+    "schema": "project/schema.sql"
+  },
+
+  "features": {
+    "conversation_commands": true,
+    "smart_database_init": true,
+    "evolution_mechanism": true,
+    "double_review": true,
+    "cross_set_consistency": true
+  },
+
+  "documentation": {
+    "readme": "README.md",
+    "soul": "SOUL.md",
+    "structure_guide": "STRUCTURE_GUIDE.md",
+    "evolution_guide": "EVOLUTION_GUIDE.md",
+    "database_readme": "DATABASE_README.md",
+    "openclaw_guide": "OpenClaw调用指南.md",
+    "update_log": "UPDATE_LOG.md",
+    "user_guide": "USER.md"
+  },
+
+  "conversation_commands": {
+    "查看状态": {
+      "description": "查看当前项目状态和进度",
+      "action": "get_agent_state"
+    },
+    "查看导演状态": {
+      "description": "查看总导演的工作状态",
+      "action": "get_director_state"
+    },
+    "查看美术状态": {
+      "description": "查看美术指导的工作状态",
+      "action": "get_art_state"
+    },
+    "查看分镜状态": {
+      "description": "查看分镜师的工作状态",
+      "action": "get_storyboard_state"
+    },
+    "查看统计": {
+      "description": "查看项目统计信息",
+      "action": "get_statistics"
+    },
+    "查看问题列表": {
+      "description": "查看记录的问题列表",
+      "action": "get_issues"
+    },
+    "查看活跃问题": {
+      "description": "查看活跃的问题",
+      "action": "get_active_issues"
+    },
+    "查看已解决问题": {
+      "description": "查看已解决的问题",
+      "action": "get_resolved_issues"
+    },
+    "查看检查点": {
+      "description": "查看检查点记录",
+      "action": "get_checkpoints"
+    },
+    "初始化数据库": {
+      "description": "初始化或检查数据库状态",
+      "action": "init_database"
+    },
+    "检查数据库": {
+      "description": "检查数据库状态",
+      "action": "check_database"
+    },
+    "导出备份": {
+      "description": "导出数据备份",
+      "action": "export_backup"
+    }
+  }
+}
